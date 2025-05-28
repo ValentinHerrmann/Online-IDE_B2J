@@ -258,6 +258,9 @@ export class EmbeddedFileExplorer {
                 fileData.$fileDiv.addClass('jo_active');
                 break;
         }
+        console.log("Selected file: " + fileData.module.file.name);
+        //@ts-ignore
+        window.selected_file_name = fileData.module.file.name;
     }
 
     colorize(code: string[], codeMap: { [code: string]: string }, callback: () => void) {

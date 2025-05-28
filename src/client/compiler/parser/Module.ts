@@ -598,6 +598,18 @@ export class Module {
         return this.model.getValue(monaco.editor.EndOfLinePreference.LF, false);
     }
 
+    setProgramTextToMonacoModel(text: string) {
+        this.model.setValue(text);
+        this.file.text = text;
+        this.file.dirty = true;
+        this.file.saved = false;
+        this.file.identical_to_repository_version = false;
+
+        if (this.main != null) {
+            this.main.getMonacoEditor().setModel(this.model);   //.setModelLanguage(this.model, FileTypeManager.filenameToFileType(this.file.name).language);
+        }
+    }
+
 
     addIdentifierPosition(position: TextPosition, element: Type | Method | Attribute | Variable) {
         let positionList: IdentifierPosition[] = this.identifierPositions[position.line];

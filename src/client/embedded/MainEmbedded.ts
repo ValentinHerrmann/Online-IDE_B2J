@@ -150,7 +150,7 @@ export class MainEmbedded implements MainBase {
         this.semicolonAngel = new SemicolonAngel(this);
 
         //@ts-ignore
-        window.ONLINE_IDE_ACCESS = new OnlineIDEAccessImpl();
+        window.online_ide_access = new OnlineIDEAccessImpl();
         OnlineIDEAccessImpl.registerIDE(this);
 
     }
